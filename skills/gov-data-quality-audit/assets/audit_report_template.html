@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>政务数据质量稽核报告</title>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; max-width: 960px; margin: 0 auto; padding: 32px 24px; color: #1a1a1a; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+  h2 { font-size: 1.1rem; font-weight: 600; margin-top: 32px; margin-bottom: 8px; border-bottom: 2px solid #e5e5e5; padding-bottom: 4px; }
+  .meta { font-size: 0.85rem; color: #666; margin-bottom: 24px; line-height: 1.8; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .pass { background: #d1fae5; color: #065f46; }
+  .warn { background: #fef3c7; color: #92400e; }
+  .fail { background: #fee2e2; color: #991b1b; }
+  .skip { background: #f3f4f6; color: #6b7280; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.85rem; margin-top: 8px; }
+  th { background: #f4f4f4; font-weight: 600; padding: 8px 10px; text-align: left; border: 1px solid #ddd; }
+  td { padding: 6px 10px; border: 1px solid #eee; vertical-align: top; }
+  tr:nth-child(even) { background: #fafafa; }
+  .score-box { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .score-card { border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px 16px; min-width: 130px; text-align: center; }
+  .score-card .label { font-size: 0.75rem; color: #666; margin-bottom: 4px; }
+  .score-card .value { font-size: 1.8rem; font-weight: 700; }
+  .overall { background: #f0f9ff; border-color: #bae6fd; }
+  .note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 10px 14px; font-size: 0.85rem; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<h1>政务数据质量稽核报告</h1>
+<div class="meta">
+  <strong>数据集：</strong>[schema.table] &nbsp;|&nbsp;
+  <strong>提供方：</strong>[部门] &nbsp;|&nbsp;
+  <strong>编制人：</strong>[姓名]<br>
+  <strong>稽核日期：</strong>[YYYY-MM-DD] &nbsp;|&nbsp;
+  <strong>数据截止：</strong>[YYYY-MM-DD HH:MM] &nbsp;|&nbsp;
+  <strong>稽核范围：</strong>[全表 / 抽样 N 行 / 日期范围]
+</div>
+
+<h2>一、总体得分</h2>
+<div class="score-box">
+  <div class="score-card overall">
+    <div class="label">总分</div>
+    <div class="value" style="color:#1d4ed8">[ ]</div>
+    <div class="label">/ 100</div>
+  </div>
+  <div class="score-card"><div class="label">完整性</div><div class="value">[ ]</div></div>
+  <div class="score-card"><div class="label">准确性</div><div class="value">[ ]</div></div>
+  <div class="score-card"><div class="label">一致性</div><div class="value">[ ]</div></div>
+  <div class="score-card"><div class="label">规范性</div><div class="value">[ ]</div></div>
+  <div class="score-card"><div class="label">时效性</div><div class="value">[ ]</div></div>
+  <div class="score-card"><div class="label">可访问性</div><div class="value">[ ]</div></div>
+</div>
+<p><strong>评级：</strong><span class="badge pass">优 / 良 / 中 / 差</span>
+&nbsp;<strong>结论：</strong>通过 / 有条件通过 / 不通过</p>
+
+<h2>二、维度得分明细</h2>
+<table>
+  <thead><tr><th>维度</th><th>权重</th><th>得分</th><th>加权得分</th><th>主要问题</th></tr></thead>
+  <tbody>
+    <tr><td>完整性</td><td>25%</td><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
+    <tr><td>准确性</td><td>25%</td><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
+    <tr><td>一致性</td><td>20%</td><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
+    <tr><td>规范性</td><td>15%</td><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
+    <tr><td>时效性</td><td>10%</td><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
+    <tr><td>可访问性</td><td>5%</td><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
+    <tr><td><strong>合计</strong></td><td><strong>100%</strong></td><td></td><td><strong>[ ]</strong></td><td></td></tr>
+  </tbody>
+</table>
+<div class="note">评分公式：维度得分 = 100 ×（1 − 违规率）。未执行的检查项标 SKIP，不得默认满分。</div>
+
+<h2>三、检查项执行情况</h2>
+<table>
+  <thead><tr><th>#</th><th>检查项</th><th>维度</th><th>方法</th><th>样本量</th><th>违规数</th><th>违规率</th><th>状态</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td><span class="badge pass">PASS</span></td></tr>
+  </tbody>
+</table>
+
+<h2>四、重点问题</h2>
+<h3>高（24 小时内整改）</h3>
+<table>
+  <thead><tr><th>#</th><th>问题</th><th>涉及量</th><th>证据</th><th>责任方</th><th>状态</th></tr></thead>
+  <tbody><tr><td>1</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>待整改</td></tr></tbody>
+</table>
+
+<h3>中（5 个工作日内整改）</h3>
+<table>
+  <thead><tr><th>#</th><th>问题</th><th>涉及量</th><th>证据</th><th>责任方</th><th>状态</th></tr></thead>
+  <tbody><tr><td>1</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>待整改</td></tr></tbody>
+</table>
+
+<h3>低（30 天内整改）</h3>
+<table>
+  <thead><tr><th>#</th><th>问题</th><th>涉及量</th><th>证据</th><th>责任方</th><th>状态</th></tr></thead>
+  <tbody><tr><td>1</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>待整改</td></tr></tbody>
+</table>
+
+<h2>五、结论与整改要求</h2>
+<p><strong>是否可用于共享 / 开放 / 业务办理：</strong>是 / 否 / 有条件（列明条件）</p>
+<ul>
+  <li>限制条件：[ ]</li>
+  <li>整改责任部门：[ ]</li>
+  <li>复核时间：[ ]</li>
+</ul>
+<p>编制人：[ ]　复核人：[ ]　数据 Owner：[ ]</p>
+
+<hr>
+<p style="font-size:0.75rem;color:#999">模板说明：本报告模板参考 nimrodfisher/data-analytics-skills（MIT License）结构，已按政务质量稽核场景重写。</p>
+</body>
+</html>
