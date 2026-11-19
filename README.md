@@ -1,5 +1,7 @@
 # 政务数据治理 Claude Code Skills
 
+> 仓库地址：https://github.com/lin-yong-liang/gov-data-governance-skills
+
 面向**政务/公共数据行业**的数据治理 skill 套件，适用于 Claude Code。覆盖治理体系评估、政务数据目录、数据质量、分类分级与合规、高质量数据集评测等场景。
 
 ## Skill 一览
@@ -20,7 +22,7 @@
 ### 方式一：脚本（推荐）
 
 ```powershell
-git clone git@github.com:<your-name>/gov-data-governance-skills.git
+git clone git@github.com:lin-yong-liang/gov-data-governance-skills.git
 cd gov-data-governance-skills
 .\install.ps1
 ```
