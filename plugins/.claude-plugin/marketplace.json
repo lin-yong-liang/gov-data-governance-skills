@@ -1,0 +1,32 @@
+{
+  "name": "gov-skill-bundle",
+  "owner": {
+    "name": "lin-yong-liang",
+    "url": "https://github.com/lin-yong-liang"
+  },
+  "description": "Government data governance skill bundle: PM and Product plugins.",
+  "plugins": [
+    {
+      "name": "pm-skills",
+      "source": "./pm-skills",
+      "description": "9 project management skills with 15 Python tools: pm-skills orchestrator, senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template scaffolder, meeting analyzer, team communications. Includes bundled Atlassian Remote MCP.",
+      "version": "2.14.6",
+      "author": {
+        "name": "Alireza Rezvani",
+        "url": "https://alirezarezvani.com"
+      },
+      "category": "project-management"
+    },
+    {
+      "name": "product-skills",
+      "source": "./product-skills",
+      "description": "14 product skills with 19 Python tools: product-skills orchestrator, product manager toolkit, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, spec-to-repo, design-qa.",
+      "version": "2.14.11",
+      "author": {
+        "name": "Alireza Rezvani",
+        "url": "https://alirezarezvani.com"
+      },
+      "category": "product"
+    }
+  ]
+}

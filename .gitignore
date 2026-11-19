@@ -9,3 +9,7 @@ Thumbs.db
 venv/
 .idea/
 .vscode/
+.codex/
+plugins/**/.codex/
+plugins/**/*.pyc
+

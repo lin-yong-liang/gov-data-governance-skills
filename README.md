@@ -2,9 +2,18 @@
 
 > 仓库地址：https://github.com/lin-yong-liang/gov-data-governance-skills
 
-面向**政务/公共数据行业**的数据治理 skill 套件，适用于 Claude Code。覆盖治理体系评估、政务数据目录、数据质量、分类分级与合规、高质量数据集评测等场景。
+面向**政务/公共数据行业**的数据治理 skill 套件，同时收录 PM/Product 通用插件，适用于 Claude Code。仓库用于个人备份、团队复用和开源分享。
 
-## Skill 一览
+## 内容总览
+
+| 类别 | 数量 | 许可证 |
+|---|---:|---|
+| 政务数据治理 skill（原创） | 8 | MIT |
+| 官方文档与工具 skill | 7 | Apache 2.0 |
+| Composio 通用 skill | 6 | 5 个上游未提供 LICENSE，1 个 Apache 2.0 |
+| PM / Product 插件 | 2 个插件包（23 个 skill 目录 + 命令/agent） | MIT |
+
+## 一、政务数据治理 skill（8）
 
 | Skill | 用途 | 主要交付物 |
 |---|---|---|
@@ -17,9 +26,47 @@
 | `gov-metric-reconciliation` | 指标口径对账、差异根因分析、权威口径确认 | 对账报告、根因分析、整改建议 |
 | `gov-high-quality-dataset-review` | TC609 三维度 17 项评测、抽样、标注质量、认定结论 | 评分表、评测报告、复测记录 |
 
+## 二、官方文档与工具 skill（7）
+
+来源：https://github.com/anthropics/skills，Apache 2.0。
+
+| Skill | 用途 |
+|---|---|
+| `docx` | 创建、读取、编辑 Word 文档 |
+| `pdf` | 读取、合并、拆分、填写 PDF |
+| `pptx` | 创建、编辑、解析 PowerPoint |
+| `xlsx` | 创建、编辑、分析 Excel |
+| `doc-coauthoring` | 结构化文档协作写作 |
+| `skill-creator` | 创建、修改、评测 skill |
+| `mcp-builder` | 构建 MCP 服务 |
+
+## 三、Composio 通用 skill（6）
+
+来源：https://github.com/ComposioHQ/awesome-claude-skills。
+
+| Skill | 用途 |
+|---|---|
+| `file-organizer` | 文件整理、重复文件识别（删除前确认） |
+| `changelog-generator` | 从 git 提交生成 changelog |
+| `content-research-writer` | 联网调研与结构化写作 |
+| `connect-apps` | 连接外部 SaaS（需 Composio 插件与 API key） |
+| `meeting-insights-analyzer` | 会议转写分析与沟通反馈 |
+| `internal-comms` | 内部通讯、周报、FAQ、事故报告 |
+
+> 其中 5 个 skill 上游仓库未提供 LICENSE 文件，收录状态与权利说明见 `THIRD_PARTY_NOTICES.md`。`connect-apps` 依赖 Composio 插件和 API key，当前仅收录 skill，开箱即用前需完成外部配置。
+
+## 四、PM / Product 插件（2 个）
+
+| 插件 | 版本 | 内容 |
+|---|---|---|
+| `pm-skills` | 2.14.6 | 9 个项目管理和敏捷 skill + 编排器 agent + Atlassian MCP |
+| `product-skills` | 2.14.11 | 14 个产品管理 skill + 编排器 agent + discovery hook |
+
+插件安装方式见 `plugins/README.md`。
+
 ## 安装
 
-### 方式一：脚本（推荐）
+### 用户级 skill（21 个）
 
 ```powershell
 git clone git@github.com:lin-yong-liang/gov-data-governance-skills.git
@@ -27,13 +74,27 @@ cd gov-data-governance-skills
 .\install.ps1
 ```
 
-### 方式二：手动复制
+或手动复制：
 
 ```powershell
 Copy-Item .\skills\* "$HOME\.claude\skills\" -Recurse -Force
 ```
 
-安装后重启 Claude Code 或新开会话，skill 会自动加载。
+### 插件（2 个）
+
+```powershell
+.\install-plugins.ps1
+```
+
+或手动：
+
+```powershell
+claude plugin marketplace add .\plugins
+claude plugin install pm-skills@gov-skill-bundle -y
+claude plugin install product-skills@gov-skill-bundle -y
+```
+
+安装后重启 Claude Code 或新开会话。
 
 ## 使用示例
 
@@ -42,6 +103,7 @@ Copy-Item .\skills\* "$HOME\.claude\skills\" -Recurse -Force
 - “大屏和月报的办件量差了 5%，帮我出一份对账报告”
 - “按高质量数据集评测框架，给这个数据集出评测方案和抽样计划”
 - “用 DCMM 给单位做一次数据治理现状评估”
+- “用 RICE 给这批需求排优先级，并生成 PRD”
 
 ## 依赖
 
@@ -71,30 +133,45 @@ python -m pip install pandas pyarrow sqlalchemy
 gov-data-governance-skills/
 ├── README.md
 ├── LICENSE
+├── THIRD_PARTY_NOTICES.md
 ├── install.ps1
+├── install-plugins.ps1
 ├── .gitignore
-└── skills/
-    ├── data-governance-framework/
-    ├── metadata-standards-master-data/
-    ├── data-quality-engineering/
-    ├── data-classification-compliance/
-    ├── gov-data-quality-audit/
-    ├── gov-data-catalog-entry/
-    ├── gov-metric-reconciliation/
-    └── gov-high-quality-dataset-review/
+├── skills/                  # 21 个用户级 skill
+│   ├── data-governance-framework/
+│   ├── metadata-standards-master-data/
+│   ├── data-quality-engineering/
+│   ├── data-classification-compliance/
+│   ├── gov-data-quality-audit/
+│   ├── gov-data-catalog-entry/
+│   ├── gov-metric-reconciliation/
+│   ├── gov-high-quality-dataset-review/
+│   ├── docx/ pdf/ pptx/ xlsx/
+│   ├── doc-coauthoring/ skill-creator/ mcp-builder/
+│   └── file-organizer/ changelog-generator/ content-research-writer/
+│       connect-apps/ meeting-insights-analyzer/ internal-comms/
+├── plugins/                 # PM / Product 插件包
+│   ├── .claude-plugin/marketplace.json
+│   ├── pm-skills/
+│   ├── product-skills/
+│   └── README.md
+└── third_party/             # 第三方许可证与说明
 ```
+
+## 许可证与第三方来源
+
+- 本仓库原创部分：MIT，见根目录 `LICENSE`
+- 第三方内容：遵循各自许可证，详见 `THIRD_PARTY_NOTICES.md`
+- 收录的 Composio 5 个 skill 上游未提供 LICENSE，未声明适用本仓库 MIT 许可证
 
 ## 安全说明
 
-- 所有脚本只读本地文件或数据库元数据，不访问外部网络。
-- 数据库连接串由使用者显式提供，请勿把密码写进命令行历史。
-- 报告和样本涉及个人信息时必须脱敏，不输出完整身份证号、手机号。
-- 不建议在生产库直接跑全表扫描，优先抽样或使用只读从库。
-- 政务数据分类分级、重要数据识别和认定结论需由本单位数据管理部门确认。
-
-## 许可证
-
-MIT License。部分模板结构参考 `nimrodfisher/data-analytics-skills`（MIT），详见相关 skill 下的 `LICENSE` 文件。
+- 所有脚本只读本地文件或数据库元数据，不访问外部网络
+- 数据库连接串由使用者显式提供，请勿把密码写进命令行历史
+- 报告和样本涉及个人信息时必须脱敏，不输出完整身份证号、手机号
+- 不建议在生产库直接跑全表扫描，优先抽样或使用只读从库
+- 政务数据分类分级、重要数据识别和认定结论需由本单位数据管理部门确认
+- `connect-apps` 等外部 SaaS 集成在政务环境中使用前需完成安全与合规评估
 
 ## 免责声明
 
